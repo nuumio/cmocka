@@ -24,7 +24,7 @@ set(LIBRARY_SOVERSION "0")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 set(CMAKE_MODULE_PATH
-  ${CMAKE_SOURCE_DIR}/cmake/Modules
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules
 )
 
 # add definitions
@@ -42,6 +42,7 @@ macro_ensure_out_of_source_build("${PROJECT_NAME} requires an out of source buil
 # config.h checks
 include(ConfigureChecks.cmake)
 configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # check subdirectories
 add_subdirectory(doc)
